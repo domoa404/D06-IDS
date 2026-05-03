@@ -1,4 +1,4 @@
-42"}
+
 # D06 Sentinel IDS
 
 D06 Sentinel is a terminal-based IDS/IPS system designed for Kali Linux and other Linux distributions. It monitors network traffic in real time using Scapy, detects suspicious behavior, assigns threat scores per IP, logs alerts, and can automatically block malicious IPs using iptables.

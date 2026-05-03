@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-BANNER = r"""
-
+# ❗ خليناه فارغ حتى ينشال الشعار القديم
+BANNER = ""
 
 
 class RichUI:
@@ -18,7 +18,6 @@ class RichUI:
         self._rich_available = True
         try:
             from rich.console import Console
-
             self._console = Console()
         except ImportError:
             self._rich_available = False
@@ -27,10 +26,10 @@ class RichUI:
     def print_banner(self, banner: str, version: str) -> None:
         if self._rich_available:
             self._console.print(f"[bold cyan]{banner}[/bold cyan]")
-            self._console.print(f"[bold]SentinelX v{version}[/bold] IDS/IPS\n")
+            self._console.print(f"[bold]D06 IDS v{version}[/bold]\n")
         else:
             print(banner)
-            print(f"SentinelX v{version} IDS/IPS\n")
+            print(f"D06 IDS v{version}\n")
 
     def start(self) -> None:
         if not self._rich_available:
@@ -70,6 +69,7 @@ class RichUI:
                 "warning": "yellow",
                 "normal": "green",
             }.get(severity, "white")
+
             if self._live is not None:
                 self._live.console.print(f"[{style}]{message}[/{style}]")
             else:
@@ -91,6 +91,7 @@ class RichUI:
         from rich.table import Table
         from rich.text import Text
 
+        # 📊 Metrics
         metrics = Table.grid(expand=True)
         metrics.add_column(justify="center")
         metrics.add_column(justify="center")
@@ -101,6 +102,7 @@ class RichUI:
             f"[bold red]Blocked IPs[/bold red]\n{blocked_count}",
         )
 
+        # 📡 Table
         table = Table(
             title="Live Threat Scores",
             box=box.SIMPLE_HEAVY,
@@ -115,17 +117,24 @@ class RichUI:
             for item in snapshot[:20]:
                 score = int(item["score"])
                 status = str(item["status"])
+
                 score_style = "red" if score >= self.threshold else "yellow"
+
                 status_text = (
                     Text("BLOCKED", style="bold red")
                     if status == "BLOCKED"
                     else Text("MONITOR", style="green")
                 )
-                table.add_row(str(item["ip"]), f"[{score_style}]{score}[/{score_style}]", status_text)
+
+                table.add_row(
+                    str(item["ip"]),
+                    f"[{score_style}]{score}[/{score_style}]",
+                    status_text,
+                )
         else:
             table.add_row("No suspicious IPs", "0", Text("NORMAL", style="green"))
 
         return Group(
-            Panel(metrics, title="SentinelX Metrics", border_style="cyan"),
+            Panel(metrics, title="D06 Metrics", border_style="cyan"),
             Align.left(table),
         )

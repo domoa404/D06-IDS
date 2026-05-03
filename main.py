@@ -17,6 +17,9 @@ from detector import PacketSniffer, SuspiciousDetector
 from logger import AlertLogger
 from scorer import ThreatScorer
 from ui import BANNER, RichUI
+from banner import show_logo
+
+show_logo()
 
 VERSION = "1.0"
 APP_NAME = "SentinelX"

@@ -21,7 +21,7 @@ def show_logo() -> None:
 
     console.print(Text("D06 IDS".center(width), style="bold cyan"))
     console.print(Text("Domoa Alfatlawi".center(width), style="white"))
-    console.print(Text("Sentinel System Active".center(width), style="green"))
+    console.print(Text("System Active".center(width), style="green"))
     console.print()
 
 

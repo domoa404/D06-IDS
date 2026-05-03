@@ -20,7 +20,7 @@ D06 Sentinel is a terminal-based IDS/IPS system designed for Kali Linux and othe
 
 ## Installation
 
-bash git clone https://github.com/YOUR-USERNAME/D06-IDS.git cd D06-IDS python3 -m venv venv source venv/bin/activate pip install -r requirements.txt 
+bash git clone https://github.com/domoa404/D06-IDS.git cd D06-IDS python3 -m venv venv source venv/bin/activate pip install -r requirements.txt 
 
 ---
 

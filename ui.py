@@ -1,10 +1,10 @@
-"""Rich terminal UI for SentinelX."""
+"""Rich terminal UI for D06 IDS."""
 
 from __future__ import annotations
 
 from typing import Any
 
-#
+
 BANNER = ""
 
 

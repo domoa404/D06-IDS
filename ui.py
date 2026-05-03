@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-# ❗ خليناه فارغ حتى ينشال الشعار القديم
+#
 BANNER = ""
 
 

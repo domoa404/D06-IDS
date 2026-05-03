@@ -1,4 +1,4 @@
-# DO6
+# D06
 
  v1.0 is a terminal-based IDS/IPS for Kali Linux and other Linux systems. It monitors network packets in real time with Scapy, detects suspicious behavior, assigns per-IP threat scores, logs alerts as JSON, and can automatically block malicious IPs with `iptables`.
 
